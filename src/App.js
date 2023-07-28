@@ -1,28 +1,32 @@
-import './App.css';
+
+import { Routes, Route } from 'react-router-dom';
+import Apps from './Task';
+import Birds from './Birds';
+import Counter from './Counter';
+import Navigation, { Home, Blog, Contact } from './Navigation';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <>
+      
+      <Apps />
+      <Birds />
+      <Counter />
+       <Navigation />
+     <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/Blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route
+          path="*"
+          element={
+            <div>
+              <h1>Bad Request</h1>
+            </div>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 
